@@ -15,32 +15,7 @@
             font-size: 24px;
             color: white;
             padding: 8px}
-        li{
-            display: inline;}
-        #headerImage{
-            display: block;
-            margin-top: 0px;
-            margin-right: auto;
-            margin-left: auto;
-            margin-bottom: 70px; }
-         table,td{
-             padding: 12px;
-             margin-left: auto;
-             margin-right: auto;
-             margin-bottom: 0px;}
-         .image-table{
-             width: 600px;
-             height: 400px;
-             margin-bottom: 0px;}
-         p{
-             background-color: rgb(150, 170, 190);
-             padding: 10px;
-             margin-top: 0px;
-             text-align: center;
-             color: white;
-             font-weight: bold;
-             font-family: Helvetica;
-         }
+      
 
     </style>
 </head>
@@ -52,17 +27,12 @@
             <li><a href="Contact.html">CONTACT</a></li>
         </ul>
     <header >
-        <img id="headerImage" src="https://img.bekiaviajes.com/ciudades/portada/0000/7-h.jpg"  width="1800" height="700px">
+        <h1>Hola {{usuario.nombre}}!</h1>
+        <ul>
+            {% for p in productos %}
+                <li>{{p.nombre}} - ${{p.precio}}</li>
+                {% endfor %}
+        </ul>
     </header>
-    <section>
-        <table>
-            <caption style="color: white;font-size: 24px;font-family: Helvetica;" >Mejores lugares para viajar</caption>
-            <tr>
-                <td><a href="Trips.html"><img class="image-table" src="https://media.gq.com.mx/photos/5c8fe8f0d47f8ca854fd4552/16:9/w_1920%2cc_limit/GettyImages-913710180.jpg" alt="" ></a><br><p>MAHAHUAL</p></td>
-                <td><a href="Trips.html"><img class="image-table" src="https://services.meteored.com/img/article/felicidades-hoy-es-el-dia-internacional-de-las-montanas-222501-1_1024.jpeg" alt=""></a><br><p>FANES-SENNES-PRAGS</p></td>
-                <td><a href="Trips.html"><img class="image-table" src="https://detailandia.com/wp-content/uploads/2018/04/Maya-Bay-e1537249002752.jpg" alt=""></a><br><p>MAYA BAY PHI PHI</p></td>
-            </tr>
-        </table>
-    </section>
 </body>
 </html>
