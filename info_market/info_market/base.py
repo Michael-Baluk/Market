@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,9 +16,10 @@ SECRET_KEY = 'django-insecure-_wf(rz5+gd$g-5$($9zi+!+4yd*&l04t3c3r222%*s26#-$+_(
 DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('inicio')
 
-LOGIN_REDIRECT_URL = '/accounts/profile'
-
+AUTH_USER_MODEL = "Usuarios.Usuario"
 
 # Application definition
 
@@ -30,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.productos',
+    'apps.Usuarios'
 ]
 
 MIDDLEWARE = [

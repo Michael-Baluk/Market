@@ -20,17 +20,17 @@
     </style>
 </head>
 <body style="margin: 0;background-color: rgb(42, 86, 121);">
-        <ul>
-            <li><a href="{% url 'login'%}">Iniciar sesion</a></li>
-            
-        </ul>
-    <header >
-        <h1>Hola {{usuario.nombre}}!</h1>
+        {%if user.is_authenticated %}
+        <li><a href="{% url 'logout'%}">Cerrar sesion</a></li>
+        <h1>Hola {{user.get_full_name}}!</h1>
+        {%else%}
+        <li><a href="{% url 'login'%}">Iniciar sesion</a></li>
+        {%endif%}
+    
         <ul>
             {% for p in productos %}
                 <li>{{p.nombre}} - ${{p.precio}}</li>
                 {% endfor %}
         </ul>
-    </header>
 </body>
 </html>
