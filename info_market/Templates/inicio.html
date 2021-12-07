@@ -21,10 +21,8 @@
 </head>
 <body style="margin: 0;background-color: rgb(42, 86, 121);">
         <ul>
-            <li><a href="HtmlFinal.html">HOME</a></li>
-            <li><a href="Trips.html">TRIPS</a></li>
-            <li><a href="About.html">ABOUT</a></li>
-            <li><a href="Contact.html">CONTACT</a></li>
+            <li><a href="{% url 'login'%}">Iniciar sesion</a></li>
+            
         </ul>
     <header >
         <h1>Hola {{usuario.nombre}}!</h1>
