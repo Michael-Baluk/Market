@@ -1,36 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-        ul{
-            list-style-type: none;
-            background-color: rgb(85, 156, 223);
-            text-align: center;
-            padding: 16px;
-            margin: 0px;
-            width: 100%;}
-        li a{
-            font-size: 24px;
-            color: white;
-            padding: 8px}
-      
+{% extends 'base/base.html' %}
 
-    </style>
-</head>
-<body style="margin: 0;background-color: rgb(42, 86, 121);">
-        {%if user.is_authenticated %}
-        <li><a href="{% url 'logout'%}">Cerrar sesion</a></li>
-        <h1>Hola {{user.get_full_name}}!</h1>
-        {%else%}
-        <li><a href="{% url 'login'%}">Iniciar sesion</a></li>
-        {%endif%}
-    
-        <ul>
-            {% for p in productos %}
-                <li>{{p.nombre}} - ${{p.precio}}</li>
-                {% endfor %}
-        </ul>
-</body>
-</html>
+{% block contenido %}
+    <h1 id= "titulos"> Ofertas del dia </h1>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for p in productos_a %}
+        <div class="col">
+            <div class="card shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <div class="card-body">
+                    <p class="card-text">{{p.nombre}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-secondary" href= "{% url 'productos:detalle' %}" >ver mas</a>
+                        </div>
+                            <!-- PRECIO <small class="text-muted">$$</small> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+        
+
+{% endblock contenido %}
+
