@@ -18,6 +18,10 @@
       <th scope="row">{{p.id}}</th>
       <td>{{p.nombre}}</td>
       <td>${{p.precio}}</td>
+      <td> 
+        <a href= "{% url 'productos:admin_editar' p.id %}" class="btn btn-info" style = "padding: 2px"> editar </a> &nbsp 
+        <a href = "{% url 'productos:admin_eliminar' p.id %}" class="btn btn-info" style = "padding: 2px"> eliminar </a>
+      </td>
       {% endfor %}
     </tr>
   </tbody>

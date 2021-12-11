@@ -5,6 +5,7 @@ class Usuario(AbstractUser):
     dni = models.IntegerField(null=True, blank= True)
     ##foto = models.ImageField()
 
+
     class Meta:
         db_table = 'usuarios'
 # Create your models here.
